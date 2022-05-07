@@ -7,7 +7,6 @@
 #include <iostream>
 
 #include "argparse/argparse.hpp"
-#include "keycode.h"
 #include "mcrcon.h"
 #include "spdlog/spdlog.h"
 
@@ -48,9 +47,10 @@ std::vector<std::string> split(const std::string& str,
 void process_help_packet(std::vector<std::string>& command_map,
                          const std::shared_ptr<mcrcon::rc_packet>& packet) {
   auto items = split((std::string)(const char*)packet->data, "\n");
+  bool is_first = true;
 
   for (const auto& item : items) {
-    if (item[5] != '-') {
+    if (!is_first) {
       auto start_pos = item.find('/');
       auto end_pos = item.find(':');
       if (start_pos != std::string::npos && end_pos != std::string::npos) {
@@ -60,7 +60,8 @@ void process_help_packet(std::vector<std::string>& command_map,
       } else {
         // spdlog::warn("error processing help");
       }
-    }
+    } else
+      is_first = false;
   }
 }
 
