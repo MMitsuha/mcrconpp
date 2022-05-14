@@ -1,3 +1,0 @@
-/home/mitsuha/CLionProjects/mcrconpp/cmake-build-relwithdebinfo/CMakeFiles/mcrconpp.dir
-/home/mitsuha/CLionProjects/mcrconpp/cmake-build-relwithdebinfo/CMakeFiles/edit_cache.dir
-/home/mitsuha/CLionProjects/mcrconpp/cmake-build-relwithdebinfo/CMakeFiles/rebuild_cache.dir
